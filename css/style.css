@@ -1,0 +1,189 @@
+/* @font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(../fonts/RobotoRegular.woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(../fonts/Roboto-LightItalic.woff);
+    font-weight: 300;
+    font-style: italic;
+} */
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.2;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: normal;
+    font-style: normal;
+    color: #000;
+    background-color: #E5E5E5;
+}
+
+.container {
+    width: 320px;
+    /* min-height: 533px; */
+    padding: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -267px;
+    margin-left: -160px;
+    background-color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-screen {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 437px;
+    margin-top: 7px;
+    border: 1px solid #000;
+    padding: 8px;
+    overflow-y: auto;
+}
+
+.btn {
+    height: 32px;
+    border: 1px solid #000;
+    text-align: center;
+    background-color: #fff;
+}
+
+.btn:hover {
+    background-color: #535353;
+    color: #fff;
+}
+
+.header__btn--settings {
+    width: 98px;
+    padding: 6px 8px;
+}
+
+.header__btn--exit {
+    width: 66px;
+}
+
+.send-message__btn {
+    width: 29px;
+}
+
+.input {
+    height: 32px;
+    margin: 0;
+
+    border: 1px solid #000;
+    padding-left: 7px;
+}
+
+.send-message__form {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.send-message__input {
+    min-width: 267px;
+}
+
+.message-i-box {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.message-member-box {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.message {
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.i-message {
+    background-color: #F6F6F6;
+}
+
+.member-message {
+    background-color: #E5E5E5;
+}
+
+.message-text {
+    margin-bottom: 4px;
+}
+
+.message-time {
+    font-style: italic;
+    font-size: 14px;
+    text-align: end;
+}
+
+.modal {
+    position: absolute;
+    width: 321px;
+    height: 533px;
+    background-color: #535353;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.modal__body {
+    width: 273px;
+    height: 319px;
+    margin: 0 auto;
+    margin-top: 106px;
+    padding: 16px 14px;
+
+    background-color: #fff;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal__close-btn {
+    border: none;
+    background-color: #fff;
+}
+
+.modal__form {
+    margin-top: 16px;
+}
+
+.modal__form-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.modal__form-input {
+    width: 207px;
+}
+
+.modal__form__btn {
+    width: 30px;
+}
