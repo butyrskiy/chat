@@ -105,13 +105,13 @@ body {
     min-width: 267px;
 }
 
-.message-i-box {
+.i-message-box {
     display: flex;
     flex-direction: column;
     align-items: end;
 }
 
-.message-member-box {
+.member-message-box {
     display: flex;
     flex-direction: column;
     align-items: start;
