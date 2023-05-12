@@ -147,7 +147,6 @@ body {
     background-color: #535353;
     top: 0;
     left: 0;
-    display: none;
 }
 
 .modal__body {
@@ -170,20 +169,66 @@ body {
     background-color: #fff;
 }
 
-.modal__form {
+.modal-settings__form {
     margin-top: 16px;
 }
 
-.modal__form-box {
+.modal-settings__form-input {
+    width: 207px;
+}
+
+.modal-settings__form-btn {
+    width: 30px;
+}
+
+.modal-settings {
+    display: none;
+}
+
+.modal-settings__box {
     display: flex;
     justify-content: space-between;
     margin-top: 8px;
 }
 
-.modal__form-input {
-    width: 207px;
+.modal-authorization {
+    display: none;
 }
 
-.modal__form__btn {
-    width: 30px;
+.modal-authorization__form {
+    margin-top: 70px;
+}
+
+.modal-authorization__form-input {
+    display: block;
+    width: 245px;
+    margin-top: 3px;
+}
+
+.modal-authorization__form-btn {
+    width: 120px;
+    margin-top: 7px;
+}
+
+#modalBtnGetCode {
+    margin-right: 1px;
+}
+
+.modal-confirmation {
+    display: none;
+}
+
+.modal-confirmation__form {
+    margin-top: 70px;
+}
+
+.modal-confirmation__form-input {
+    display: block;
+    width: 245px;
+    margin-top: 3px;
+}
+
+.modal-confirmation__form-btn {
+    width: 62px;
+    margin-top: 7px;
 }

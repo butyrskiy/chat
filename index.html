@@ -57,11 +57,44 @@
                         <h2 class="modal__title">Настройки</h2>
                         <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
                     </div>
-                    <div class="modal__form">
-                        <div class="modal__form-title">Имя в чате</div>
-                        <div class="modal__form-box">
-                            <input type="text" class="modal__form-input input" placeholder="Enter your name">
-                            <button class="modal__form__btn btn">-></button>
+                    <div class="modal-settings__form">
+                        <div class="modal-settings__form-title">Имя в чате</div>
+                        <div class="modal-settings__box">
+                            <input type="text" class="modal-settings__form-input input" placeholder="Enter your name">
+                            <button class="modal-settings__form-btn btn">-></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-authorization modal">
+                <div class="modal__body">
+                    <div class="modal__header">
+                        <h2 class="modal__title">Authorization</h2>
+                        <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
+                    </div>
+                    <div class="modal-authorization__form">
+                        <div class="modal-authorization__form-title">E-mail:</div>
+                        <div class="modal-authorization__box">
+                            <input type="text" class="modal-authorization__form-input input" placeholder="Enter your email">
+                            <button id="modalBtnGetCode" class="modal-authorization__form-btn btn">Get code</button>
+                            <button class="modal-authorization__form-btn btn">Enter code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-confirmation modal">
+                <div class="modal__body">
+                    <div class="modal__header">
+                        <h2 class="modal__title">Confirmation</h2>
+                        <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
+                    </div>
+                    <div class="modal-confirmation__form">
+                        <div class="modal-confirmation__form-title">Code:</div>
+                        <div class="modal-confirmation__box">
+                            <input type="text" class="modal-confirmation__form-input input" placeholder="Enter your code">
+                            <button class="modal-confirmation__form-btn btn">Log in</button>
                         </div>
                     </div>
                 </div>
