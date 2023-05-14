@@ -35,6 +35,10 @@ body {
     background-color: #E5E5E5;
 }
 
+.modal-hide {
+    display: none;
+}
+
 .container {
     width: 320px;
     /* min-height: 533px; */
@@ -181,9 +185,9 @@ body {
     width: 30px;
 }
 
-.modal-settings {
+/* .modal-settings {
     display: none;
-}
+} */
 
 .modal-settings__box {
     display: flex;
@@ -191,9 +195,9 @@ body {
     margin-top: 8px;
 }
 
-.modal-authorization {
-    /* display: none; */
-}
+/* .modal-authorization {
+    display: none;
+} */
 
 .modal-authorization__form {
     margin-top: 70px;
@@ -206,17 +210,24 @@ body {
 }
 
 .modal-authorization__form-btn {
+    display: inline;
     width: 120px;
     margin-top: 7px;
+    padding-left: 8px;
+    text-align: left;
 }
 
 #modalBtnGetCode {
     margin-right: 1px;
 }
 
-.modal-confirmation {
+/* #modalBtnEnterCode {
+    display: inline;
+} */
+
+/* .modal-confirmation {
     display: none;
-}
+} */
 
 .modal-confirmation__form {
     margin-top: 70px;
