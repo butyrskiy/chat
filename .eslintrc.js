@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'eslint:recommended',
+  extends: 'airbnb',
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -12,5 +12,7 @@ module.exports = {
   rules: {
     eqeqeq: ['error', 'always'],
     'no-var': 'error',
+    'max-len': ['error', { code: 120 }],
+    'import/prefer-default-export': 'off',
   },
 };

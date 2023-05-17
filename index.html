@@ -1,106 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <template id="iMessageTemplate">
-        <div class="i-message message">
-            <div class="i-message__text message-text">Я: <span></span></div>
-            <div class="i-message__time message-time">18:45</div>
-        </div>
+      <div class="i-message message">
+        <div class="i-message__text message-text">Я: <span></span></div>
+        <div class="i-message__time message-time">18:45</div>
+      </div>
     </template>
 
     <template id="memberMessageTemplate">
-        <div class="member-message message">
-            <div class="member-message__text message-text">Собеседник: Lorem ipsum</div>
-            <div class="member-message__time message-time">18:45</div>
+      <div class="member-message message">
+        <div class="member-message__text message-text">
+          Собеседник: Lorem ipsum
         </div>
+        <div class="member-message__time message-time">18:45</div>
+      </div>
     </template>
 
     <div class="container">
-        <main class="main-screen">
-            <div class="header">
-                <button class="header__btn header__btn--settings btn">Settings</button>
-                <button class="header__btn header__btn--exit btn">Exit</button>
-            </div>
-    
-            <section class="message-screen">
-                <div class="i-message-box">
-    
-                </div>
-                <div class="member-message-box">
-    
-                </div>
-            </section>
-    
-            <div class="send-message">
-                <form action="submit" class="send-message__form">
-                    <input type="text" class="send-message__input input" placeholder='Write a message...'>
-                    <button class="send-message__btn btn">-></button>
-                </form>
-            </div>
-        </main>
-
-        <div class="modals">
-            <div class="modal-settings modal">
-                <div class="modal__body">
-                    <div class="modal__header">
-                        <h2 class="modal__title">Настройки</h2>
-                        <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
-                    </div>
-                    <div class="modal-settings__form">
-                        <div class="modal-settings__form-title">Имя в чате</div>
-                        <div class="modal-settings__box">
-                            <input type="text" class="modal-settings__form-input input" placeholder="Enter your name">
-                            <button class="modal-settings__form-btn btn">-></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-authorization modal">
-                <div class="modal__body">
-                    <div class="modal__header">
-                        <h2 class="modal__title">Authorization</h2>
-                        <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
-                    </div>
-                    <form class="modal-authorization__form">
-                        <div class="modal-authorization__form-title">E-mail:</div>
-                        <div class="modal-authorization__box">
-                            <input type="email" class="modal-authorization__form-input input" placeholder="Enter your email">
-                            <button id="modalBtnGetCode" class="modal-authorization__form-btn btn">Get code</button>
-                            <button id="modalBtnEnterCode" class="modal-authorization__form-btn btn">Enter code</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="modal-confirmation modal">
-                <div class="modal__body">
-                    <div class="modal__header">
-                        <h2 class="modal__title">Confirmation</h2>
-                        <button class="modal__close-btn"><img src="img/plus-icon.svg" alt=""></button>
-                    </div>
-                    <div class="modal-confirmation__form">
-                        <div class="modal-confirmation__form-title">Code:</div>
-                        <div class="modal-confirmation__box">
-                            <input type="text" class="modal-confirmation__form-input input" placeholder="Enter your code">
-                            <button class="modal-confirmation__form-btn btn">Log in</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <main class="main-screen">
+        <div class="header">
+          <button class="header__btn header__btn--settings btn">
+            Settings
+          </button>
+          <button class="header__btn header__btn--exit btn">Exit</button>
         </div>
+
+        <section class="message-screen">
+          <div class="i-message-box"></div>
+          <div class="member-message-box"></div>
+        </section>
+
+        <div class="send-message">
+          <form action="submit" class="send-message__form">
+            <input
+              type="text"
+              class="send-message__input input"
+              placeholder="Write a message..."
+            />
+            <button class="send-message__btn btn">-></button>
+          </form>
+        </div>
+      </main>
+
+      <div class="modals">
+        <div class="modal-settings modal">
+          <div class="modal__body">
+            <div class="modal__header">
+              <h2 class="modal__title">Настройки</h2>
+              <button class="modal__close-btn">
+                <img src="img/plus-icon.svg" alt="" />
+              </button>
+            </div>
+            <form class="modal-settings__form">
+              <div class="modal-settings__form-title">Имя в чате</div>
+              <div class="modal-settings__box">
+                <input
+                  type="text"
+                  class="modal-settings__form-input input"
+                  placeholder="Enter your name"
+                />
+                <button class="modal-settings__form-btn btn">-></button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-authorization modal">
+          <div class="modal__body">
+            <div class="modal__header">
+              <h2 class="modal__title">Authorization</h2>
+              <button class="modal__close-btn">
+                <img src="img/plus-icon.svg" alt="" />
+              </button>
+            </div>
+            <form class="modal-authorization__form">
+              <div class="modal-authorization__form-title">E-mail:</div>
+              <div class="modal-authorization__box">
+                <input
+                  type="email"
+                  class="modal-authorization__form-input input"
+                  placeholder="Enter your email"
+                />
+                <button
+                  id="modalBtnGetCode"
+                  class="modal-authorization__form-btn btn"
+                >
+                  Get code
+                </button>
+                <button
+                  id="modalBtnEnterCode"
+                  class="modal-authorization__form-btn btn"
+                >
+                  Enter code
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="modal-confirmation modal">
+          <div class="modal__body">
+            <div class="modal__header">
+              <h2 class="modal__title">Confirmation</h2>
+              <button class="modal__close-btn">
+                <img src="img/plus-icon.svg" alt="" />
+              </button>
+            </div>
+            <form class="modal-confirmation__form">
+              <div class="modal-confirmation__form-title">Code:</div>
+              <div class="modal-confirmation__box">
+                <input
+                  type="text"
+                  class="modal-confirmation__form-input input"
+                  placeholder="Enter your code"
+                />
+                <button class="modal-confirmation__form-btn btn">Log in</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
     <script type="module" src="js/main.js"></script>
-</body>
+  </body>
 </html>
