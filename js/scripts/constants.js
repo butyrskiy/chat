@@ -6,10 +6,11 @@ export const ELEMENTS = {
 
 export const MODAL = {
   ALL_MODAL: document.querySelectorAll('.modal'),
+  BODY_AUTH: document.getElementById('modalBodyAuthorization'),
   AUTHORIZATION: document.querySelector('.modal-authorization'),
   SETTINGS: document.querySelector('.modal-settings'),
   CONFIRMATION: document.querySelector('.modal-confirmation'),
-  AUTHORIZATION_FORN: document.querySelector('.modal-authorization__form'),
+  AUTHORIZATION_FORM: document.querySelector('.modal-authorization__form'),
   AUTHORIZATION_INPUT: document.querySelector('.modal-authorization__form-input'),
   CONFIRMATION_FORM: document.querySelector('.modal-confirmation__form'),
   CONFIRMATION_INPUT: document.querySelector('.modal-confirmation__form-input'),
@@ -24,4 +25,14 @@ export const BUTTONS = {
 
 export const REQUESTS = {
   URL_GET_TOKEN: 'https://edu.strada.one/api/user',
+};
+
+export const VALID = {
+  EMAIL_REGEXP: /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu,
+};
+
+export const HTML = {
+  SERVICE_MESSAGE: `<span class="service-message">
+  Request has been sent. Check your mail
+</span>`,
 };

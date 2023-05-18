@@ -1,15 +1,14 @@
 import { saveCookies } from './scripts/cookies';
 
 import {
-  closeAllModal, openModalSettings, openModalAuthorization, openConfirmationModal, closeCurrentModal,
+  openModalSettings, openModalAuthorization, openConfirmationModal, closeModal,
 } from './scripts/modal';
 
 import {
-  ELEMENTS, BUTTONS, MODAL, REQUESTS,
+  ELEMENTS, BUTTONS, MODAL, REQUESTS, HTML,
 } from './scripts/constants';
 
-closeAllModal();
-closeCurrentModal();
+import { checkEmail } from './scripts/support_function';
 
 function sendMessage(e) {
   e.preventDefault();
@@ -33,18 +32,22 @@ async function getAuthorizationCode(email) {
       },
       body: JSON.stringify({ email }),
     });
-    const res = await response.json();
-    console.log(res);
+
+    if (response.ok) {
+      MODAL.BODY_AUTH.insertAdjacentHTML('beforeend', HTML.SERVICE_MESSAGE);
+    }
   } catch (e) {
     console.error(e);
   }
 }
 
-MODAL.AUTHORIZATION_FORN.addEventListener('submit', (e) => {
+MODAL.AUTHORIZATION_FORM.addEventListener('submit', (e) => {
   e.preventDefault();
-  const emailValue = MODAL.AUTHORIZATION_INPUT.value;
 
-  getAuthorizationCode(emailValue);
+  if (checkEmail() && e.submitter.id === 'modalBtnGetCode') {
+    getAuthorizationCode(MODAL.AUTHORIZATION_INPUT.value);
+    MODAL.AUTHORIZATION_FORM.reset();
+  }
 });
 
 MODAL.CONFIRMATION_FORM.addEventListener('submit', (e) => {
@@ -57,3 +60,6 @@ BUTTONS.SETTINGS.addEventListener('click', openModalSettings);
 BUTTONS.AUTHORIZATION.addEventListener('click', openModalAuthorization);
 BUTTONS.ENTER_CODE.addEventListener('click', openConfirmationModal);
 ELEMENTS.MESSAGE_FORM.addEventListener('submit', sendMessage);
+MODAL.AUTHORIZATION_INPUT.addEventListener('input', checkEmail);
+
+closeModal();

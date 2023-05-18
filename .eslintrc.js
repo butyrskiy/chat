@@ -12,7 +12,7 @@ module.exports = {
   rules: {
     eqeqeq: ['error', 'always'],
     'no-var': 'error',
-    'max-len': ['error', { code: 120 }],
+    'max-len': ['error', { code: 135 }],
     'import/prefer-default-export': 'off',
   },
 };
