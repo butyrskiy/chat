@@ -16,15 +16,17 @@
   <body>
     <template id="iMessageTemplate">
       <div class="i-message message">
-        <div class="i-message__text message-text">Я: <span></span></div>
+        <div class="i-message__block">
+          Я: <span class="i-message__text"></span>
+        </div>
         <div class="i-message__time message-time">18:45</div>
       </div>
     </template>
 
     <template id="memberMessageTemplate">
       <div class="member-message message">
-        <div class="member-message__text message-text">
-          Собеседник: Lorem ipsum
+        <div class="member-message__block">
+          Собеседник: <span class="member-message__text"></span>
         </div>
         <div class="member-message__time message-time">18:45</div>
       </div>
@@ -58,7 +60,7 @@
 
       <div class="modals">
         <div class="modal-settings modal modal-hide">
-          <div class="modal__body">
+          <div id="modalBodySettings" class="modal__body">
             <div class="modal__header">
               <h2 class="modal__title">Settings</h2>
               <button class="modal__close-btn"></button>
@@ -77,7 +79,7 @@
           </div>
         </div>
 
-        <div class="modal-authorization modal modal-hide">
+        <div class="modal-authorization modal">
           <div id="modalBodyAuthorization" class="modal__body">
             <div class="modal__header">
               <h2 class="modal__title">Authorization</h2>
@@ -103,9 +105,6 @@
                 Enter code
               </button>
             </form>
-            <!-- <span class="service-message">
-              Request has been sent. Check your mail
-            </span> -->
           </div>
         </div>
 

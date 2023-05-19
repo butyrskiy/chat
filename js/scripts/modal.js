@@ -12,7 +12,7 @@ export function openConfirmationModal() {
   MODAL.CONFIRMATION.classList.remove('modal-hide');
 }
 
-function closeAllModal() {
+export function closeAllModal() {
   MODAL.ALL_MODAL.forEach((item) => {
     item.classList.add('modal-hide');
   });
