@@ -6,7 +6,7 @@ import {
   ELEMENTS, BUTTONS, MODAL, REQUESTS, HTML,
 } from './scripts/constants';
 import { checkEmail } from './scripts/support_function';
-import { changeName, getMessage } from './scripts/requests';
+import { changeName, getMessage, getMyInfo } from './scripts/requests';
 
 function renderMyMessage(e) {
   e.preventDefault();
@@ -67,6 +67,7 @@ BUTTONS.AUTHORIZATION.addEventListener('click', openModalAuthorization);
 BUTTONS.ENTER_CODE.addEventListener('click', openConfirmationModal);
 ELEMENTS.MESSAGE_FORM.addEventListener('submit', renderMyMessage);
 MODAL.AUTHORIZATION_INPUT.addEventListener('input', checkEmail);
+BUTTONS.GET_INFO.addEventListener('click', getMyInfo);
 
 closeModal();
 checkCookie();

@@ -1,6 +1,8 @@
 import Cookies from 'js-cookie';
-import { MODAL, HTML, REQUESTS } from './constants';
-import { renderAllMessage } from './renderMessage';
+import {
+  MODAL, HTML, REQUESTS, ELEMENTS,
+} from './constants';
+import { renderAllMessage, rebderMyInfo } from './renderMessage';
 
 export async function changeName(setName) {
   try {
@@ -13,7 +15,8 @@ export async function changeName(setName) {
       body: JSON.stringify({ name: setName }),
     });
     if (response.ok) {
-      MODAL.BODY_SETT.insertAdjacentHTML('beforeend', HTML.SERVICE_MESSAGE_SETNAME);
+      ELEMENTS.MODAL_MYINFO.innerHTML = '';
+      ELEMENTS.MODAL_MYINFO.insertAdjacentHTML('beforeend', HTML.SERVICE_MESSAGE_SETNAME);
       MODAL.SETTINGS_FORM.reset();
     }
   } catch (error) {
@@ -37,8 +40,7 @@ export async function getMessage() {
   }
 }
 
-// Todo. Create a button that will display the current name
-async function getMyName() {
+export async function getMyInfo() {
   try {
     const response = await fetch(REQUESTS.URL_GET_NAME, {
       headers: {
@@ -48,10 +50,9 @@ async function getMyName() {
       },
     });
     const res = await response.json();
-    console.log(res);
+    ELEMENTS.MODAL_MYINFO.innerHTML = '';
+    rebderMyInfo(res);
   } catch (e) {
     console.log(e);
   }
 }
-
-// getMyName();

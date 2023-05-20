@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -17,7 +17,7 @@
     <template id="iMessageTemplate">
       <div class="i-message message">
         <div class="i-message__block">
-          Я: <span class="i-message__text"></span>
+          <span class="i-message__text message__text"></span>
         </div>
         <div class="i-message__time message-time">18:45</div>
       </div>
@@ -26,10 +26,26 @@
     <template id="memberMessageTemplate">
       <div class="member-message message">
         <div class="member-message__block">
-          Собеседник: <span class="member-message__text"></span>
+          <span class="memberName"></span>
+          <span class="member-message__text message__text"></span>
         </div>
         <div class="member-message__time message-time">18:45</div>
       </div>
+    </template>
+
+    <template id="getInfoTemplate">
+      <p class="myinfo__item myinfo__email">
+        Email: <span class="myinfo__email-value myinfo__item-value"></span>
+      </p>
+      <p class="myinfo__item myinfo__name">
+        Name: <span class="myinfo__name-value myinfo__item-value"></span>
+      </p>
+      <p class="myinfo__item myinfo__token">
+        Token: <span class="myinfo__token-value myinfo__item-value"></span>
+      </p>
+      <p class="myinfo__item myinfo__id">
+        ID: <span class="myinfo__id-value myinfo__item-value"></span>
+      </p>
     </template>
 
     <div class="container">
@@ -76,6 +92,8 @@
                 <button class="modal-settings__form-btn btn">-></button>
               </div>
             </form>
+            <button class="btn getinfo-btn">Get info</button>
+            <div class="myinfo"></div>
           </div>
         </div>
 

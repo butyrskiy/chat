@@ -83,6 +83,29 @@ body {
   padding: 6px 8px;
 }
 
+.getinfo-btn {
+  font-size: 15px;
+  margin-top: 15px;
+  padding: 3px 10px;
+}
+
+.myinfo {
+  margin-top: 10px;
+}
+
+.myinfo__item {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+  padding: 5px;
+  border-bottom: 1px dotted black;
+}
+
+.myinfo__item-value {
+  font-weight: normal;
+  font-size: 13px;
+}
+
 .header__btn--exit {
   width: 66px;
 }
@@ -121,26 +144,35 @@ body {
   align-items: start;
 }
 
+.memberName {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .message {
   padding: 8px;
   margin-bottom: 8px;
 }
 
+.message__text {
+  font-size: 15px;
+}
+
 .i-message {
   background-color: #f6f6f6;
+  border-radius: 7px;
 }
 
 .member-message {
   background-color: #e5e5e5;
-}
-
-.i-message__block {
-  margin-bottom: 4px;
+  min-width: 70px;
+  border-radius: 7px;
 }
 
 .message-time {
+  margin-top: 2px;
   font-style: italic;
-  font-size: 14px;
+  font-size: 13px;
   text-align: end;
 }
 

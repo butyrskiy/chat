@@ -1,30 +1,30 @@
+/* eslint-disable no-undef */
 import { ELEMENTS } from './constants';
 
 export function renderAllMessage(data) {
-  const memberMessageTemp = memberMessageTemplate.content.cloneNode(true);
+  const messageData = data.messages;
 
-  const messageArr = data.messages;
-  console.log(messageArr);
+  messageData.forEach((element) => {
+    const memberMessageTemp = memberMessageTemplate.content.cloneNode(true);
 
-  messageArr.forEach((element) => {
-    const msg = document.createElement('div');
-    const msgBlock = document.createElement('div');
-    const msgText = document.createElement('span');
-    const msgTime = document.createElement('div');
-    msg.classList.add('i-message', 'message');
-    msgBlock.classList.add('i-message__block');
-    msgText.classList.add('i-message__text');
-    msgTime.classList.add('i-message__time', 'message-time');
-    msg.append(msgBlock);
-    msgBlock.append(msgText);
-    msgBlock.append(msgTime);
-    ELEMENTS.MEMBER_MESSAGE_BOX.append(msg);
+    memberMessageTemp.querySelector('.member-message__text').textContent = element.text;
+    memberMessageTemp.querySelector('.memberName').textContent = `${element.user.name}:`;
 
-    msgText.textContent = element.text;
-
-    const time = new Date(element.createdAt);
-    const timeMsg = `${time.getHours()}:${time.getMinutes()}`;
-
-    msgTime.textContent = timeMsg;
+    ELEMENTS.MEMBER_MESSAGE_BOX.append(memberMessageTemp);
   });
+}
+
+export function rebderMyInfo(data) {
+  const {
+    _id, name, email, token,
+  } = data;
+
+  const getInfoTemp = getInfoTemplate.content.cloneNode(true);
+
+  getInfoTemp.querySelector('.myinfo__email-value').textContent = email;
+  getInfoTemp.querySelector('.myinfo__id-value').textContent = _id;
+  getInfoTemp.querySelector('.myinfo__name-value').textContent = name;
+  getInfoTemp.querySelector('.myinfo__token-value').textContent = `${token.slice(0, 20)}...`;
+
+  ELEMENTS.MODAL_MYINFO.append(getInfoTemp);
 }

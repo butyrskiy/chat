@@ -3,6 +3,7 @@ export const ELEMENTS = {
   MESSAGE_INPUT: document.querySelector('.send-message__input'),
   I_MESSAGE_BOX: document.querySelector('.i-message-box'),
   MEMBER_MESSAGE_BOX: document.querySelector('.member-message-box'),
+  MODAL_MYINFO: document.querySelector('.myinfo'),
 };
 
 export const MODAL = {
@@ -25,6 +26,7 @@ export const BUTTONS = {
   AUTHORIZATION: document.querySelector('.header__btn--exit'),
   ENTER_CODE: document.getElementById('modalBtnEnterCode'),
   CLOSE: document.querySelectorAll('.modal__close-btn'),
+  GET_INFO: document.querySelector('.getinfo-btn'),
 };
 
 export const REQUESTS = {
