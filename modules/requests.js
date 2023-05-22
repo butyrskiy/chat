@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import {
   MODAL, HTML, REQUESTS, ELEMENTS,
 } from './constants';
-import { renderAllMessage, rebderMyInfo } from './renderMessage';
+import { renderAllMessage, rebderMyInfo } from './messages/render';
 
 export async function changeName(setName) {
   try {

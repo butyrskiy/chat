@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
-import { ELEMENTS } from './constants';
+import { ELEMENTS } from '../constants';
 
 export function renderAllMessage(data) {
   const messageData = data.messages;
+  const fragment = document.createDocumentFragment();
 
   messageData.forEach((element) => {
     const memberMessageTemp = memberMessageTemplate.content.cloneNode(true);
@@ -10,8 +11,10 @@ export function renderAllMessage(data) {
     memberMessageTemp.querySelector('.member-message__text').textContent = element.text;
     memberMessageTemp.querySelector('.memberName').textContent = `${element.user.name}:`;
 
-    ELEMENTS.MEMBER_MESSAGE_BOX.append(memberMessageTemp);
+    fragment.append(memberMessageTemp);
   });
+
+  ELEMENTS.MEMBER_MESSAGE_BOX.append(fragment);
 }
 
 export function rebderMyInfo(data) {

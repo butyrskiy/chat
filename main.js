@@ -1,12 +1,13 @@
-import { saveCookies, checkCookie } from './scripts/cookies';
+import { saveCookies } from './modules/Authorization/cookies';
 import {
   openModalSettings, openModalAuthorization, openConfirmationModal, closeModal, closeAllModal,
-} from './scripts/modal';
+} from './modules/UI/modal';
 import {
   ELEMENTS, BUTTONS, MODAL, REQUESTS, HTML,
-} from './scripts/constants';
-import { checkEmail } from './scripts/support_function';
-import { changeName, getMessage, getMyInfo } from './scripts/requests';
+} from './modules/constants';
+import { checkEmail } from './modules/support_function';
+import { changeName, getMessage, getMyInfo } from './modules/requests';
+import { checkToken } from './modules/Authorization/checkToken';
 
 function renderMyMessage(e) {
   e.preventDefault();
@@ -70,5 +71,5 @@ MODAL.AUTHORIZATION_INPUT.addEventListener('input', checkEmail);
 BUTTONS.GET_INFO.addEventListener('click', getMyInfo);
 
 closeModal();
-checkCookie();
+checkToken();
 getMessage();

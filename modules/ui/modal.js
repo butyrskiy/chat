@@ -1,4 +1,4 @@
-import { MODAL } from './constants';
+import { MODAL } from '../constants';
 
 export function openModalSettings() {
   MODAL.SETTINGS.classList.remove('modal-hide');
