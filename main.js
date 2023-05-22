@@ -1,53 +1,16 @@
-import { saveCookies } from './modules/Authorization/cookies';
+import { saveCookies, removeCookies } from './modules/authorization/cookies';
 import {
   openModalSettings, openModalAuthorization, openConfirmationModal, closeModal, closeAllModal,
-} from './modules/UI/modal';
-import {
-  ELEMENTS, BUTTONS, MODAL, REQUESTS, HTML,
-} from './modules/constants';
+} from './modules/interface/modal';
+import { ELEMENTS, BUTTONS, MODAL } from './modules/constants';
 import { checkEmail } from './modules/support_function';
-import { changeName, getMessage, getMyInfo } from './modules/requests';
-import { checkToken } from './modules/Authorization/checkToken';
+import { changeName, getMyInfo } from './modules/requests';
+import { getTokenCode } from './modules/authorization/token';
+import { renderMyMessage } from './modules/messages/render';
+import { websocket } from './modules/webSocket';
 
-function renderMyMessage(e) {
-  e.preventDefault();
-  if (ELEMENTS.MESSAGE_INPUT.value === '') return;
-
-  // eslint-disable-next-line no-undef
-  const iMessageTemp = iMessageTemplate.content.cloneNode(true);
-  iMessageTemp.querySelector('.i-message__text').textContent = ELEMENTS.MESSAGE_INPUT.value;
-
-  ELEMENTS.I_MESSAGE_BOX.append(iMessageTemp);
-
-  ELEMENTS.MESSAGE_FORM.reset();
-}
-
-async function getAuthorizationCode(email) {
-  try {
-    const response = await fetch(REQUESTS.URL_USER, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify({ email }),
-    });
-
-    if (response.ok) {
-      MODAL.BODY_AUTH.insertAdjacentHTML('beforeend', HTML.SERVICE_MESSAGE_GETCODE);
-    }
-  } catch (e) {
-    alert(e);
-  }
-}
-
-MODAL.AUTHORIZATION_FORM.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  if (checkEmail() && e.submitter.id === 'modalBtnGetCode') {
-    getAuthorizationCode(MODAL.AUTHORIZATION_INPUT.value);
-    MODAL.AUTHORIZATION_FORM.reset();
-  }
-});
+closeModal();
+websocket();
 
 MODAL.CONFIRMATION_FORM.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -67,9 +30,7 @@ BUTTONS.SETTINGS.addEventListener('click', openModalSettings);
 BUTTONS.AUTHORIZATION.addEventListener('click', openModalAuthorization);
 BUTTONS.ENTER_CODE.addEventListener('click', openConfirmationModal);
 ELEMENTS.MESSAGE_FORM.addEventListener('submit', renderMyMessage);
+MODAL.AUTHORIZATION_FORM.addEventListener('submit', getTokenCode);
 MODAL.AUTHORIZATION_INPUT.addEventListener('input', checkEmail);
 BUTTONS.GET_INFO.addEventListener('click', getMyInfo);
-
-closeModal();
-checkToken();
-getMessage();
+BUTTONS.EXIT.addEventListener('click', removeCookies);

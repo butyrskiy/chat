@@ -132,13 +132,7 @@ body {
   min-width: 267px;
 }
 
-.i-message-box {
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-}
-
-.member-message-box {
+.message-box {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -159,6 +153,7 @@ body {
 }
 
 .i-message {
+  margin-left: auto;
   background-color: #f6f6f6;
   border-radius: 7px;
 }

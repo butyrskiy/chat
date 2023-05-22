@@ -1,20 +1,39 @@
 /* eslint-disable no-undef */
 import { ELEMENTS } from '../constants';
+// eslint-disable-next-line import/no-cycle
+import { sendMessage } from '../webSocket';
+
+export function renderMyMessage(e) {
+  e.preventDefault();
+  const message = ELEMENTS.MESSAGE_INPUT.value;
+
+  if (ELEMENTS.MESSAGE_INPUT.value === '') return;
+
+  sendMessage(message);
+
+  ELEMENTS.MESSAGE_FORM.reset();
+}
 
 export function renderAllMessage(data) {
   const messageData = data.messages;
   const fragment = document.createDocumentFragment();
 
-  messageData.forEach((element) => {
+  messageData.reverse().forEach((element) => {
+    const iMessageTemp = iMessageTemplate.content.cloneNode(true);
     const memberMessageTemp = memberMessageTemplate.content.cloneNode(true);
 
-    memberMessageTemp.querySelector('.member-message__text').textContent = element.text;
-    memberMessageTemp.querySelector('.memberName').textContent = `${element.user.name}:`;
+    if (element.user.email === 'd.butyrskiy@gmail.com') {
+      iMessageTemp.querySelector('.i-message__text').textContent = element.text;
 
-    fragment.append(memberMessageTemp);
+      fragment.append(iMessageTemp);
+    } else {
+      memberMessageTemp.querySelector('.member-message__text').textContent = element.text;
+      memberMessageTemp.querySelector('.memberName').textContent = `${element.user.name}:`;
+      fragment.append(memberMessageTemp);
+    }
   });
 
-  ELEMENTS.MEMBER_MESSAGE_BOX.append(fragment);
+  ELEMENTS.MESSAGE_BOX.append(fragment);
 }
 
 export function rebderMyInfo(data) {

@@ -1,12 +1,9 @@
 import Cookies from 'js-cookie';
-import { MODAL } from '../constants';
 
 export function saveCookies(token) {
   Cookies.set('token', token);
 }
 
-export function checkCookie() {
-  if (Cookies.get('token')) {
-
-  }
+export function removeCookies() {
+  Cookies.remove('token');
 }

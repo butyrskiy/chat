@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 import {
   MODAL, HTML, REQUESTS, ELEMENTS,
 } from './constants';
-import { renderAllMessage, rebderMyInfo } from './messages/render';
+import { rebderMyInfo } from './messages/render';
 
 export async function changeName(setName) {
   try {
@@ -21,22 +21,6 @@ export async function changeName(setName) {
     }
   } catch (error) {
     alert(error);
-  }
-}
-
-export async function getMessage() {
-  try {
-    const response = await fetch(REQUESTS.URL_GET_MESSAGE, {
-      headers: {
-        method: 'GET',
-        'Content-Type': 'application/json;charset=utf-8',
-        Authorization: `Bearer ${Cookies.get('token')}`,
-      },
-    });
-    const res = await response.json();
-    renderAllMessage(res);
-  } catch (e) {
-    console.log(e);
   }
 }
 
