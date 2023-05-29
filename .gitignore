@@ -9,7 +9,7 @@ dist
 /coverage
 
 # production
-/build
+# /build
 
 # mist
 .DS_Store

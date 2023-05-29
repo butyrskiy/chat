@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'airbnb',
+  extends: [
+    'airbnb',
+    'plugin:@typescript-eslint/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -14,5 +19,6 @@ module.exports = {
     'no-var': 'error',
     'max-len': ['error', { code: 135 }],
     'import/prefer-default-export': 'off',
+    // '@typescript-eslint/indent': ['error', 2],
   },
 };
